@@ -1,0 +1,29 @@
+#/Users/xintaiao/opt/miniconda3/envs/DaddyKelvin2
+from bs4 import BeautifulSoup
+from urllib.request import Request, urlopen
+import json
+import ssl
+
+url = "https://www.UberEats.com/neighborhood/eagle-rock-los-angeles-ca" #test city
+
+# send a request to the page, using the Mozilla 5.0 browser header
+req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+# open the page using our urlopen library
+page = urlopen(req).read()
+# use BeautifulSoup to parse the webpage
+soup = BeautifulSoup(page, 'html.parser')
+
+for x in soup.find_all('h3'): # loop through all restaurants
+     print(x.text)
+
+def parse_doordash(*args):
+     pass
+
+def parse_ubereats(*args):
+     pass
+
+def parse_postmates(*args):
+     pass
+
+def parse_grubhub(*args):
+     pass
